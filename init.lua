@@ -1,3 +1,6 @@
+-- space as leader
+vim.g.mapleader = ' '
+
 -- lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -37,9 +40,18 @@ require("lazy").setup({
     {"neovim/nvim-lspconfig"},
     {"hrsh7th/cmp-nvim-lsp"},
     {"hrsh7th/cmp-buffer"},
-    {"hrsh7th/cmp-path"},
     {"hrsh7th/cmp-cmdline"},
-    {"hrsh7th/nvim-cmp"}
+    {"hrsh7th/cmp-path"},
+    {"hrsh7th/nvim-cmp"},
+
+    -- yanky
+    {
+      "gbprod/yanky.nvim",
+      opts = {}
+    },
+
+    -- misc
+    {"Lokaltog/vim-powerline"}
 });
 
 -- colorscheme
@@ -47,9 +59,6 @@ vim.cmd[[colorscheme tokyonight]]
 
 -- disable old-vim compatibility
 vim.opt.compatible = false
-
--- space as leader
-vim.g.mapleader = ' '
 
 -- always show sign column
 vim.opt.signcolumn = 'yes'
@@ -103,18 +112,34 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
+-- clear search highlighting
+vim.keymap.set('n', '<C-\\>', ':nohlsearch<CR>')
+
+-- rename work under cursor
+vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/')
+
 -- close all buffers
 vim.api.nvim_create_user_command('BD', '%bd', {})
 
 -- open lua config file
 vim.api.nvim_create_user_command('Conf', 'e ~/.config/nvim/init.lua', {})
 
--- ctrl-p fzf search
+-- fzf
 vim.keymap.set('n', '<C-p>', ':GFiles --others --cached --exclude-standard<CR>');
+vim.g.fzf_history_dir = '~/.config/fzf/fzf-history'
 
 -- neovide
-vim.o.guifont = "Source Code Pro:h12"
+vim.o.guifont = "Monaco:h12"
 vim.g.neovide_cursor_animation_length = 0
+-- workaround neovide copy/paste
+vim.g.neovide_input_use_logo = 1
+vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+
+-- yanky
+vim.api.nvim_create_user_command('Yh', ':YankyRingHistory', {})
 
 -- autocompletions
 vim.cmd("autocmd BufEnter,BufNew *.php iabbrev ro readonly")
@@ -130,6 +155,9 @@ vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev crg /** @return \\Generator<a
 vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev cdp /** @dataProvider*/<Left><Left>")
 vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tpr $this->prophesize")
 vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tprr $this->prophesize(::class)->reveal()<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+
+-- vim-dispatch preview window
+vim.g.dispatch_quickfix_height = 20
 
 -- phpunit/phpspec
 -- C-T to run the current test/spec
@@ -153,7 +181,7 @@ cmp.setup({
       ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
       ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
       ['<C-enter>'] = cmp.mapping.complete(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-space>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
