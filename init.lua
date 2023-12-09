@@ -51,7 +51,10 @@ require("lazy").setup({
     },
 
     -- misc
-    {"Lokaltog/vim-powerline"}
+    {"Lokaltog/vim-powerline"},
+
+    -- phpactor
+    {"gbprod/phpactor.nvim"},
 });
 
 -- colorscheme
@@ -166,6 +169,14 @@ vim.cmd("autocmd BufEnter,BufNew *Spec.php nnoremap <buffer> <C-t> :Dispatch doc
 -- S-T on a test/spec name to run it individually
 vim.cmd("autocmd BufEnter,BufNew *Test.php nnoremap <S-T> :Dispatch docker compose exec bindhq-fpm rm -rf var/cache/test/twig ; docker compose exec bindhq-fpm php -d memory_limit=-1 vendor/bin/phpunit --colors=never --order-by default --filter=<cword> %<CR>")
 vim.cmd("autocmd BufEnter,BufNew *Spec.php nnoremap <S-T> :execute 'Dispatch docker compose exec bindhq-fpm vendor/bin/phpspec run %:' . line('.')<CR>")
+
+require("phpactor").setup({
+    install = { bin = vim.fn.expand('$HOME/bin/phpactor') }
+})
+
+vim.keymap.set('n', '<leader>nn', function()
+    require('phpactor').rpc('navigate', {})
+end)
 
 -- lsp configuration
 require'lspconfig'.phpactor.setup{
