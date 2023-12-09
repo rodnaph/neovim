@@ -18,12 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- plugins
 require("lazy").setup({
     -- colorscheme
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
+    {"rebelot/kanagawa.nvim"},
 
     -- tpope
     {"tpope/vim-dispatch"},
@@ -58,7 +53,7 @@ require("lazy").setup({
 });
 
 -- colorscheme
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme kanagawa]]
 
 -- disable old-vim compatibility
 vim.opt.compatible = false
