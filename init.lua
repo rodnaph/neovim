@@ -1,55 +1,47 @@
 -- space as leader
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- lazy plugin manager
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- plugins
-require("lazy").setup({
+require('lazy').setup({
     -- colorscheme
-    {"rebelot/kanagawa.nvim"},
-
-    -- tpope
-    {"tpope/vim-dispatch"},
-    {"tpope/vim-vinegar"},
-
-    -- fzf
-    {"junegunn/fzf"},
-    {"junegunn/fzf.vim"},
-
-    -- copilot
-    {"github/copilot.vim"},
-
-    -- lsp/completion
-    {"neovim/nvim-lspconfig"},
-    {"hrsh7th/cmp-nvim-lsp"},
-    {"hrsh7th/cmp-buffer"},
-    {"hrsh7th/cmp-cmdline"},
-    {"hrsh7th/cmp-path"},
-    {"hrsh7th/nvim-cmp"},
-
-    -- yanky
+    'rebelot/kanagawa.nvim',
+    'tpope/vim-dispatch',
+    'tpope/vim-vinegar',
     {
-      "gbprod/yanky.nvim",
-      opts = {}
+        'junegunn/fzf.vim',
+        dependencies = {
+            'junegunn/fzf'
+        }
     },
-
-    -- misc
-    {"Lokaltog/vim-powerline"},
-
-    -- phpactor
-    {"gbprod/phpactor.nvim"},
+    'github/copilot.vim',
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-path',
+            'hrsh7th/nvim-cmp',
+        }
+    },
+    'gbprod/yanky.nvim',
+    'gbprod/phpactor.nvim',
+    'Lokaltog/vim-powerline',
 });
 
 -- colorscheme
@@ -60,6 +52,12 @@ vim.opt.compatible = false
 
 -- always show sign column
 vim.opt.signcolumn = 'yes'
+
+-- sync os/neo clipboard
+vim.opt.clipboard = 'unnamedplus'
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
 
 -- show line numbers
 vim.opt.number = true
@@ -127,7 +125,7 @@ vim.keymap.set('n', '<C-p>', ':GFiles --others --cached --exclude-standard<CR>')
 vim.g.fzf_history_dir = '~/.config/fzf/fzf-history'
 
 -- neovide
-vim.o.guifont = "Monaco:h12"
+vim.o.guifont = 'Monaco:h12'
 vim.g.neovide_cursor_animation_length = 0
 -- workaround neovide copy/paste
 vim.g.neovide_input_use_logo = 1
@@ -140,32 +138,32 @@ vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true}
 vim.api.nvim_create_user_command('Yh', ':YankyRingHistory', {})
 
 -- autocompletions
-vim.cmd("autocmd BufEnter,BufNew *.php iabbrev ro readonly")
-vim.cmd("autocmd BufEnter,BufNew *.php iabbrev psf public static function(): void<cr>{<cr>}<Up><Up><esc>f(i")
-vim.cmd("autocmd BufEnter,BufNew *.php iabbrev pf public function(): void<cr>{<cr>}<Up><Up><esc>f(i")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tas self::assertSame")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tae self::assertEquals")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tac self::assertCount")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tan self::assertNull")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tann self::assertNotNull")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tee $this->expectException(\\Exception::class);<cr>$this->expectExceptionMessage('');")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev crg /** @return \\Generator<array-key, array{}> */<esc>0f{a")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev cdp /** @dataProvider*/<Left><Left>")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tpr $this->prophesize")
-vim.cmd("autocmd BufEnter,BufNew *Test.php iabbrev tprr $this->prophesize(::class)->reveal()<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>")
+vim.cmd('autocmd BufEnter,BufNew *.php iabbrev ro readonly')
+vim.cmd('autocmd BufEnter,BufNew *.php iabbrev psf public static function(): void<cr>{<cr>}<Up><Up><esc>f(i')
+vim.cmd('autocmd BufEnter,BufNew *.php iabbrev pf public function(): void<cr>{<cr>}<Up><Up><esc>f(i')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tas self::assertSame')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tae self::assertEquals')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tac self::assertCount')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tan self::assertNull')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tann self::assertNotNull')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tee $this->expectException(\\Exception::class);<cr>$this->expectExceptionMessage(\'\');')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev crg /** @return \\Generator<array-key, array{}> */<esc>0f{a')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev cdp /** @dataProvider*/<Left><Left>')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tpr $this->prophesize')
+vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tprr $this->prophesize(::class)->reveal()<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>')
 
 -- vim-dispatch preview window
 vim.g.dispatch_quickfix_height = 20
 
 -- phpunit/phpspec
 -- C-T to run the current test/spec
-vim.cmd("autocmd BufEnter,BufNew *Test.php nnoremap <buffer> <C-t> :Dispatch docker compose exec bindhq-fpm rm -rf var/cache/test/twig ; docker compose exec bindhq-fpm php -d memory_limit=-1 vendor/bin/phpunit --colors=never --order-by default %<CR>")
-vim.cmd("autocmd BufEnter,BufNew *Spec.php nnoremap <buffer> <C-t> :Dispatch docker compose exec bindhq-fpm vendor/bin/phpspec run %<CR>")
+vim.cmd('autocmd BufEnter,BufNew *Test.php nnoremap <buffer> <C-t> :Dispatch docker compose exec bindhq-fpm rm -rf var/cache/test/twig ; docker compose exec bindhq-fpm php -d memory_limit=-1 vendor/bin/phpunit --colors=never --order-by default %<CR>')
+vim.cmd('autocmd BufEnter,BufNew *Spec.php nnoremap <buffer> <C-t> :Dispatch docker compose exec bindhq-fpm vendor/bin/phpspec run %<CR>')
 -- S-T on a test/spec name to run it individually
-vim.cmd("autocmd BufEnter,BufNew *Test.php nnoremap <S-T> :Dispatch docker compose exec bindhq-fpm rm -rf var/cache/test/twig ; docker compose exec bindhq-fpm php -d memory_limit=-1 vendor/bin/phpunit --colors=never --order-by default --filter=<cword> %<CR>")
-vim.cmd("autocmd BufEnter,BufNew *Spec.php nnoremap <S-T> :execute 'Dispatch docker compose exec bindhq-fpm vendor/bin/phpspec run %:' . line('.')<CR>")
+vim.cmd('autocmd BufEnter,BufNew *Test.php nnoremap <S-T> :Dispatch docker compose exec bindhq-fpm rm -rf var/cache/test/twig ; docker compose exec bindhq-fpm php -d memory_limit=-1 vendor/bin/phpunit --colors=never --order-by default --filter=<cword> %<CR>')
+vim.cmd('autocmd BufEnter,BufNew *Spec.php nnoremap <S-T> :execute \'Dispatch docker compose exec bindhq-fpm vendor/bin/phpspec run %:\' . line(\'.\')<CR>')
 
-require("phpactor").setup({
+require('phpactor').setup({
     install = { bin = vim.fn.expand('$HOME/bin/phpactor') }
 })
 
