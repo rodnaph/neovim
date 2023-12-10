@@ -22,4 +22,3 @@ vim.api.nvim_create_user_command('BD', '%bd', {})
 
 -- open lua config file
 vim.api.nvim_create_user_command('Conf', 'e ~/.config/nvim/init.lua', {})
-
