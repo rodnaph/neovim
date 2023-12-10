@@ -1,8 +1,5 @@
--- colorscheme
-vim.cmd[[colorscheme kanagawa]]
-
 -- font
-vim.o.guifont = 'Monaco:h12'
+vim.opt.guifont = 'Monaco:h12'
 
 -- disable old-vim compatibility
 vim.opt.compatible = false
@@ -14,7 +11,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.clipboard = 'unnamedplus'
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.opt.completeopt = 'menuone,noselect'
 
 -- show line numbers
 vim.opt.number = true

@@ -16,9 +16,3 @@ vim.keymap.set('n', '<C-\\>', ':nohlsearch<CR>')
 
 -- rename work under cursor
 vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/')
-
--- close all buffers
-vim.api.nvim_create_user_command('BD', '%bd', {})
-
--- open lua config file
-vim.api.nvim_create_user_command('Conf', 'e ~/.config/nvim/init.lua', {})
