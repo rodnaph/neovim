@@ -52,3 +52,6 @@ vim.opt.fixendofline = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- persistent undo
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand('~/.config/nvim/undodir')
