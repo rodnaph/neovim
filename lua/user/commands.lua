@@ -4,6 +4,17 @@ vim.api.nvim_create_user_command('BD', '%bd', {})
 -- open lua config file
 vim.api.nvim_create_user_command('Conf', 'e ~/.config/nvim/init.lua', {})
 
+-- run php-cs-fixer on current file
+vim.api.nvim_create_user_command('Cs', function ()
+    vim.cmd('Dispatch php vendor/bin/php-cs-fixer fix --diff --verbose --show-progress=none ' .. vim.fn.expand('%'))
+    vim.cmd('e')
+end, {})
+
+-- clear Symfony cache locally and in container
+vim.api.nvim_create_user_command('Cc', function ()
+    vim.cmd('Dispatch rm -rf var/cache && docker compose exec bindhq-fpm rm -rf var/cache')
+end, {})
+
 -- autocompletions
 vim.cmd('autocmd BufEnter,BufNew *.php iabbrev ro readonly')
 vim.cmd('autocmd BufEnter,BufNew *.php iabbrev psf public static function(): void<cr>{<cr>}<Up><Up><esc>f(i')
