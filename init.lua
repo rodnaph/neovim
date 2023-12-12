@@ -40,6 +40,7 @@ require('lazy').setup({
     'gbprod/yanky.nvim',
     'gbprod/phpactor.nvim',
     'Lokaltog/vim-powerline',
+    'amarakon/nvim-unfocused-cursor',
 });
 
 require('user.commands')
@@ -50,6 +51,7 @@ require('user.visual')
 require('user.plugin.fzf')
 require('user.plugin.neovide')
 require('user.plugin.phpactor')
+require('user.plugin.nvim-unfocused-cursor')
 require('user.plugin.vim-dispatch')
 require('user.plugin.yanky')
 require('user.plugin.lsp')

@@ -1,0 +1,1 @@
+require("unfocused-cursor").setup()
