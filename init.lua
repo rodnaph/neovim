@@ -41,6 +41,7 @@ require('lazy').setup({
     'gbprod/phpactor.nvim',
     'Lokaltog/vim-powerline',
     'amarakon/nvim-unfocused-cursor',
+    'Glench/Vim-Jinja2-Syntax',
 });
 
 require('user.commands')
@@ -53,5 +54,6 @@ require('user.plugin.neovide')
 require('user.plugin.phpactor')
 require('user.plugin.nvim-unfocused-cursor')
 require('user.plugin.vim-dispatch')
+require('user.plugin.vim-jinja2-syntax')
 require('user.plugin.yanky')
 require('user.plugin.lsp')
