@@ -55,3 +55,6 @@ vim.opt.undodir = vim.fn.expand('~/.config/nvim/undodir')
 
 -- highlight line with cursor
 vim.opt.cursorline = true
+
+-- enable relative line numbers
+vim.opt.relativenumber = true
