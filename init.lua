@@ -44,7 +44,7 @@ require('lazy').setup({
     'gbprod/phpactor.nvim',
     'Lokaltog/vim-powerline',
     'amarakon/nvim-unfocused-cursor',
-    'Glench/Vim-Jinja2-Syntax'
+    'Glench/Vim-Jinja2-Syntax',
 });
 
 require('user.commands')
