@@ -1,6 +1,14 @@
 require'lspconfig'.phpactor.setup{
-    on_attach = on_attach,
-    init_options = {}
+}
+
+require'lspconfig'.lua_ls.setup{
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {"vim"},
+            },
+        },
+    },
 }
 
 -- completion

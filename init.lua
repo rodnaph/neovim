@@ -21,9 +21,13 @@ require('lazy').setup({
     'tpope/vim-dispatch',
     'tpope/vim-vinegar',
     {
-        'junegunn/fzf.vim',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.5',
         dependencies = {
-            'junegunn/fzf'
+            'nvim-lua/plenary.nvim',
+            'BurntSushi/ripgrep',
+            'nvim-treesitter/nvim-treesitter',
+            'sharkdp/fd',
         }
     },
     'github/copilot.vim',
@@ -37,11 +41,10 @@ require('lazy').setup({
             'hrsh7th/nvim-cmp',
         }
     },
-    'gbprod/yanky.nvim',
     'gbprod/phpactor.nvim',
     'Lokaltog/vim-powerline',
     'amarakon/nvim-unfocused-cursor',
-    'Glench/Vim-Jinja2-Syntax',
+    'Glench/Vim-Jinja2-Syntax'
 });
 
 require('user.commands')
@@ -49,11 +52,10 @@ require('user.options')
 require('user.keymap')
 require('user.visual')
 
-require('user.plugin.fzf')
+require('user.plugin.telescope')
 require('user.plugin.neovide')
 require('user.plugin.phpactor')
 require('user.plugin.nvim-unfocused-cursor')
 require('user.plugin.vim-dispatch')
 require('user.plugin.vim-jinja2-syntax')
-require('user.plugin.yanky')
 require('user.plugin.lsp')
