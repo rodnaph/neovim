@@ -16,7 +16,9 @@ require('telescope').setup({
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 
 -- leader fu to find usages
-vim.keymap.set('n', '<leader>fu', builtin.lsp_references, {})
+vim.keymap.set('n', '<leader>fu', function ()
+    builtin.lsp_references({show_line = false})
+end)
 
 -- leader bu to search buffers
 vim.keymap.set('n', '<leader>bu', builtin.buffers, {})
