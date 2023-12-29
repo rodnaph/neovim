@@ -18,19 +18,19 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search Git files.' })
 -- leader fu to find usages
 vim.keymap.set('n', '<leader>fu', function ()
     builtin.lsp_references({show_line = false})
-end, { desc = 'Find usages via LSP.' })
+end, { desc = '[F]ind [U]sages via LSP.' })
 
 -- leader bu to search buffers
-vim.keymap.set('n', '<leader>bu', builtin.buffers, { desc = 'List open buffers.' })
+vim.keymap.set('n', '<leader>bu', builtin.buffers, { desc = 'List open [BU]ffers.' })
 
 -- leader of to previously opened files
-vim.keymap.set('n', '<leader>of', builtin.oldfiles, { desc = 'List old files.' })
+vim.keymap.set('n', '<leader>of', builtin.oldfiles, { desc = 'List [O]ld [F]iles.' })
 
 -- leader ch to search command history
-vim.keymap.set('n', '<leader>ch', builtin.command_history, { desc = 'List command history.' })
+vim.keymap.set('n', '<leader>ch', builtin.command_history, { desc = 'List [C]ommand [H]istory.' })
 
 -- leader sh to search search history
-vim.keymap.set('n', '<leader>sh', builtin.search_history, { desc = 'List search history.' })
+vim.keymap.set('n', '<leader>sh', builtin.search_history, { desc = 'List [S]earch [H]istory.' })
 
 -- ctrl-g to search word under cursor
 vim.keymap.set('n', '<C-g>', builtin.grep_string, { desc = 'Search word under cursor.' })
