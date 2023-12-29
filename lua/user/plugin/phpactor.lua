@@ -4,12 +4,12 @@ require('phpactor').setup({
 
 vim.keymap.set('n', '<leader>nn', function()
     require('phpactor').rpc('navigate', {})
-end)
+end, { desc = 'Navigate to a related file.' })
 
 vim.keymap.set('n', '<leader>tt', function()
     require('phpactor').rpc('transform', {})
-end)
+end, { desc = 'Transform the current class.' })
 
 vim.keymap.set('n', '<leader>u', function()
     require('phpactor').rpc('import_class', {})
-end)
+end, { desc = 'Import the class under the cursor.' })
