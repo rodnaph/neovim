@@ -10,6 +10,7 @@
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
   "nvim-cmp": { "branch": "main", "commit": "0b751f6beef40fd47375eaf53d3057e0bfa317e4" },
   "nvim-lspconfig": { "branch": "master", "commit": "511609ae0311abfcfaed3c398429a147e895ce2c" },
+  "nvim-notify": { "branch": "master", "commit": "ebcdd8219e2a2cbc0a4bef68002f6867f1fde269" },
   "nvim-treesitter": { "branch": "master", "commit": "7a2c6211d6f550988fccd8800de8426d5e480a2d" },
   "nvim-unfocused-cursor": { "branch": "master", "commit": "28f0194d59b3c60164384ac559179a8017569ed7" },
   "phpactor.nvim": { "branch": "main", "commit": "5c8227d324a19c4c54d38c262241ce5687f38414" },

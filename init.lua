@@ -45,6 +45,7 @@ require('lazy').setup({
     'Lokaltog/vim-powerline',
     'amarakon/nvim-unfocused-cursor',
     'Glench/Vim-Jinja2-Syntax',
+    'rcarriga/nvim-notify',
 });
 
 require('user.commands')

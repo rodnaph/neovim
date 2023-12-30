@@ -17,11 +17,14 @@ vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search Git files.' })
 
 -- leader fu to find usages
 vim.keymap.set('n', '<leader>fu', function ()
+    require('notify')("Finding usages via LSP...")
     builtin.lsp_references({show_line = false})
 end, { desc = '[F]ind [U]sages via LSP.' })
 
 -- leader bu to search buffers
-vim.keymap.set('n', '<leader>bu', builtin.buffers, { desc = 'List open [BU]ffers.' })
+vim.keymap.set('n', '<leader>bu', function ()
+    builtin.buffers();
+end, { desc = 'List open [BU]ffers.' })
 
 -- leader of to previously opened files
 vim.keymap.set('n', '<leader>of', builtin.oldfiles, { desc = 'List [O]ld [F]iles.' })
