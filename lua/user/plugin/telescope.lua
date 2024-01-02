@@ -50,3 +50,8 @@ vim.keymap.set('n', '<leader>sh', builtin.search_history, { desc = 'List [S]earc
 
 -- ctrl-g to search word under cursor
 vim.keymap.set('n', '<C-g>', builtin.grep_string, { desc = 'Search word under cursor.' })
+
+-- use Find to search all files containing string with Telescope
+vim.api.nvim_create_user_command('Find', function (opts)
+    builtin.grep_string({ search = opts.args })
+end, { nargs = 1 });
