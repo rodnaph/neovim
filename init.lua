@@ -28,6 +28,7 @@ require('lazy').setup({
             'BurntSushi/ripgrep',
             'nvim-treesitter/nvim-treesitter',
             'sharkdp/fd',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
         }
     },
     'github/copilot.vim',

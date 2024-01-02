@@ -10,7 +10,17 @@ require('telescope').setup({
             },
         },
     },
+    extensions = {
+        fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = true,  -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+        }
+    }
 })
+
+require('telescope').load_extension('fzf')
 
 -- ctrl-p to search git files
 vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search Git files.' })
@@ -25,6 +35,9 @@ end, { desc = '[F]ind [U]sages via LSP.' })
 vim.keymap.set('n', '<leader>bu', function ()
     builtin.buffers();
 end, { desc = 'List open [BU]ffers.' })
+
+-- leader ff to search files
+vim.keymap.set('n', '<leader>ff', builtin.live_grep, { desc = '[Find] in [F]iles.' })
 
 -- leader of to previously opened files
 vim.keymap.set('n', '<leader>of', builtin.oldfiles, { desc = 'List [O]ld [F]iles.' })
