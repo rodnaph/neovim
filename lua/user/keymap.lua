@@ -16,3 +16,6 @@ vim.keymap.set('n', '<C-\\>', ':nohlsearch<CR>')
 
 -- rename work under cursor
 vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/')
+
+-- close all but current buffer
+vim.keymap.set('n', '<C-u>', ':only<CR>')
