@@ -1,0 +1,3 @@
+return {
+    'Lokaltog/vim-powerline',
+}

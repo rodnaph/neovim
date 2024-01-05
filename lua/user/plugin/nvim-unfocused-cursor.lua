@@ -1,1 +1,0 @@
-require("unfocused-cursor").setup()
