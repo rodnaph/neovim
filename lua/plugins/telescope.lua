@@ -9,10 +9,11 @@ return {
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
     },
     config = function ()
+        local telescope = require('telescope')
         local actions = require('telescope.actions')
         local builtin = require('telescope.builtin')
 
-        require('telescope').setup({
+        telescope.setup({
             defaults = {
                 mappings = {
                     i = {
@@ -31,7 +32,7 @@ return {
             }
         })
 
-        require('telescope').load_extension('fzf')
+        telescope.load_extension('fzf')
 
         -- ctrl-p to search git files
         vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search Git files.' })

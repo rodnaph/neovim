@@ -8,9 +8,11 @@ return {
         'hrsh7th/nvim-cmp',
     },
     config = function ()
-        require'lspconfig'.phpactor.setup({})
+        local lspconfig = require('lspconfig')
 
-        require'lspconfig'.lua_ls.setup({
+        lspconfig.phpactor.setup({})
+
+        lspconfig.lua_ls.setup({
             settings = {
                 Lua = {
                     diagnostics = {
@@ -21,7 +23,7 @@ return {
         })
 
         -- completion
-        local cmp = require'cmp'
+        local cmp = require('cmp')
 
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
