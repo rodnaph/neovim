@@ -35,12 +35,13 @@ return {
         telescope.load_extension('fzf')
 
         -- ctrl-p to search git files
-        vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Search Git files.' })
+        vim.keymap.set('n', '<C-p>', function ()
+            builtin.git_files({ show_untracked = true })
+        end, { desc = 'Search Git files.' })
 
         -- leader fu to find usages
         vim.keymap.set('n', '<leader>fu', function ()
-            require('notify')("Finding usages via LSP...")
-            builtin.lsp_references({show_line = false})
+            builtin.lsp_references({ show_line = false })
         end, { desc = '[F]ind [U]sages via LSP.' })
 
         -- leader bu to search buffers

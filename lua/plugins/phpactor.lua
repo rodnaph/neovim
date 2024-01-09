@@ -1,5 +1,6 @@
 return {
     'gbprod/phpactor.nvim',
+    tag = 'v1.0.1',
     config = function ()
         local phpactor = require('phpactor')
 
