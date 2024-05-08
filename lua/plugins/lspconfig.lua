@@ -10,8 +10,21 @@ return {
     },
     config = function ()
         local lspconfig = require('lspconfig')
+        local cwd = vim.fn.getcwd()
 
-        lspconfig.phpactor.setup({})
+        lspconfig.intelephense.setup({
+            settings = {
+                intelephense = {
+                    environment = {
+                        includePaths = {
+                            cwd .. "/src/",
+                            cwd .. "/tests/",
+                            cwd .. "/vendor/",
+                        }
+                    },
+                },
+            },
+        })
 
         lspconfig.lua_ls.setup({
             settings = {
