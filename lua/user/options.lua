@@ -1,5 +1,5 @@
 -- font
-vim.opt.guifont = 'Monaco:h12'
+vim.opt.guifont = 'RobotoMono Nerd Font:h12'
 
 -- disable old-vim compatibility
 vim.opt.compatible = false
