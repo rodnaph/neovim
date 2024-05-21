@@ -5,7 +5,8 @@ return {
         local phpactor = require('phpactor')
 
         phpactor.setup({
-            install = { bin = vim.fn.expand('$HOME/bin/phpactor') }
+            install = { bin = vim.fn.expand('$HOME/bin/phpactor') },
+            lspconfig = { enabled = false }
         })
 
         vim.keymap.set('n', '<leader>nn', function()
