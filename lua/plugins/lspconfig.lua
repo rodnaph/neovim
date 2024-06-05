@@ -61,8 +61,6 @@ return {
             vim.keymap.set('n', '<leader>o', vim.lsp.buf.definition, opts)
             -- rename
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-            -- hover
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           end,
         })
     end
