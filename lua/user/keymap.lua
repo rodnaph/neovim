@@ -14,7 +14,7 @@ vim.keymap.set('v', '>', '>gv')
 -- clear search highlighting
 vim.keymap.set('n', '<C-\\>', ':nohlsearch<CR>')
 
--- rename work under cursor
+-- rename word under cursor
 vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/')
 
 -- close all but current buffer

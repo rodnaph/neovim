@@ -51,7 +51,7 @@ vim.opt.splitright = true
 
 -- persistent undo
 vim.opt.undofile = true
-vim.opt.undodir = vim.fn.expand('~/.config/nvim/undodir')
+vim.opt.undodir = vim.fn.expand('~/.config/nvim/.undodir')
 
 -- highlight line with cursor
 vim.opt.cursorline = true

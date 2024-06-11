@@ -11,7 +11,10 @@ return {
                         'filetype',
                         icon_only = true,
                     },
-                    'filename'
+                    {
+                        'filename',
+                        path = 1, -- relative path
+                    },
                 },
                 lualine_x = {},
                 lualine_y = {'progress'},
