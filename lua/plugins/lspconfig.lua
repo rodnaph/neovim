@@ -3,17 +3,15 @@ return {
     tag = 'v0.1.7',
     config = function ()
         local lspconfig = require('lspconfig')
-        local cwd = vim.fn.getcwd()
 
         lspconfig.intelephense.setup({
             settings = {
                 intelephense = {
-                    environment = {
-                        includePaths = {
-                            cwd .. "/src/",
-                            cwd .. "/tests/",
-                            cwd .. "/vendor/",
-                        }
+                    files = {
+                        exclude = {
+                            "**/node_modules/**",
+                            "**/var/**",
+                        },
                     },
                 },
             },
