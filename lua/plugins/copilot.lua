@@ -9,6 +9,7 @@ return {
                 auto_trigger = true,
                 keymap = {
                     accept = '<C-y>',
+                    accept_word = '<C-w>',
                 },
             },
         })
