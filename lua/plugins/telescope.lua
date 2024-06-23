@@ -36,6 +36,7 @@ return {
         })
 
         telescope.load_extension('fzf')
+        telescope.load_extension('yank_history')
 
         -- ctrl-p to search git files
         vim.keymap.set('n', '<C-p>', function ()
@@ -71,5 +72,10 @@ return {
         vim.api.nvim_create_user_command('Find', function (opts)
             builtin.grep_string({ search = opts.args })
         end, { nargs = 1 });
+
+        -- leader yr to search yank history
+        vim.keymap.set('n', '<leader>yr', function ()
+            telescope.extensions.yank_history.yank_history()
+        end, { desc = 'List [Y]ank[R]ing history.' })
     end
 }
