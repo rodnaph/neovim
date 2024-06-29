@@ -5,6 +5,7 @@ return {
         'theHamsta/nvim-dap-virtual-text',
         'rcarriga/nvim-dap-ui',
     },
+    enabled = false,
     config = function()
         local dap = require('dap')
         local dapui = require('dapui')
