@@ -19,3 +19,7 @@ vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/')
 
 -- close all but current buffer
 vim.keymap.set('n', '<C-u>', ':only<CR>')
+
+-- go to next/prev diagnostic
+vim.keymap.set('n', '[d', ':lua vim.diagnostic.goto_prev()<cr>')
+vim.keymap.set('n', ']d', ':lua vim.diagnostic.goto_next()<cr>')
