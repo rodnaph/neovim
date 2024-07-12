@@ -36,6 +36,7 @@ vim.opt.hidden = true
 
 -- keep cursor centered
 vim.opt.scrolloff = 999
+vim.opt.sidescrolloff = 999
 
 -- no backup files
 vim.opt.backup = false
