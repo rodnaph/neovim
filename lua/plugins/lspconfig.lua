@@ -26,5 +26,8 @@ return {
                 },
             },
         })
+
+        lspconfig.cssls.setup({
+        })
     end
 }
