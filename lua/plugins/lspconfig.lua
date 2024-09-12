@@ -1,6 +1,6 @@
 return {
     'neovim/nvim-lspconfig',
-    tag = 'v0.1.7',
+    tag = 'v1.0.0',
     config = function ()
         local lspconfig = require('lspconfig')
 

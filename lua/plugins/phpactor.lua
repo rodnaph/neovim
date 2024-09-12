@@ -16,9 +16,5 @@ return {
         vim.keymap.set('n', '<leader>tt', function()
             phpactor.rpc('transform', {})
         end, { desc = 'Transform the current class.' })
-
-        vim.keymap.set('n', '<leader>u', function()
-            phpactor.rpc('import_class', {})
-        end, { desc = 'Import the class under the cursor.' })
     end
 }

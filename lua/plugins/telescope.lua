@@ -59,12 +59,6 @@ return {
         -- leader of to previously opened files
         vim.keymap.set('n', '<leader>of', builtin.oldfiles, { desc = 'List [O]ld [F]iles.' })
 
-        -- leader ch to search command history
-        vim.keymap.set('n', '<leader>ch', builtin.command_history, { desc = 'List [C]ommand [H]istory.' })
-
-        -- leader sh to search search history
-        vim.keymap.set('n', '<leader>sh', builtin.search_history, { desc = 'List [S]earch [H]istory.' })
-
         -- ctrl-g to search word under cursor
         vim.keymap.set('n', '<C-g>', builtin.grep_string, { desc = 'Search word under cursor.' })
 
