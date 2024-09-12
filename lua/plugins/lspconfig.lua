@@ -5,6 +5,9 @@ return {
         local lspconfig = require('lspconfig')
 
         lspconfig.intelephense.setup({
+            init_options = {
+                licenceKey = os.getenv('INTELEPHENSE_LICENSE_KEY'),
+            },
             settings = {
                 intelephense = {
                     files = {
