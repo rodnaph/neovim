@@ -71,5 +71,14 @@ return {
         vim.keymap.set('n', '<leader>yr', function ()
             telescope.extensions.yank_history.yank_history()
         end, { desc = 'List [Y]ank[R]ing history.' })
+
+        -- leader ft to search by file type
+        vim.keymap.set('n', '<leader>ft', function ()
+            local file_extension = vim.fn.input("Enter file extension: ")
+            builtin.find_files({
+                file_ignore_patterns = { "%.git/", "node_modules/", "vendor/" },
+                find_command = { "rg", "--files", "--iglob", "*." .. file_extension }
+            })
+        end, { desc = 'Search by [F]ile [T]ype.' })
     end
 }
