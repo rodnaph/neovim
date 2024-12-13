@@ -6,7 +6,7 @@ vim.api.nvim_create_user_command('Conf', 'e ~/.config/nvim/init.lua', {})
 
 -- autocompletions
 vim.cmd('autocmd BufEnter,BufNew *.php iabbrev ro readonly')
-vim.cmd('autocmd BufEnter,BufNew *.php iabbrev psf public static function(): void<cr>{<cr>}<Up><Up><esc>f(i')
+vim.cmd('autocmd BufEnter,BufNew *.php iabbrev psf public static function(): iterable<cr>{<cr>}<Up><Up><esc>f(i')
 vim.cmd('autocmd BufEnter,BufNew *.php iabbrev pf public function(): void<cr>{<cr>}<Up><Up><esc>f(i')
 vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tas self::assertSame')
 vim.cmd('autocmd BufEnter,BufNew *Test.php iabbrev tae self::assertEquals')
