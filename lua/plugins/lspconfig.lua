@@ -1,19 +1,9 @@
 return {
     'neovim/nvim-lspconfig',
-    tag = 'v1.0.0',
+    tag = 'v1.3.0',
     config = function ()
         local lspconfig = require('lspconfig')
-
-        local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-        capabilities.textDocument.completion.completionItem.resolveSupport = {
-          properties = {
-            'documentation',
-            'detail',
-            'additionalTextEdits',
-            'codeAction',
-           }
-        }
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         lspconfig.intelephense.setup({
             capabilities = capabilities,
@@ -33,6 +23,7 @@ return {
         })
 
         lspconfig.lua_ls.setup({
+            capabilities = capabilities,
             settings = {
                 Lua = {
                     diagnostics = {
@@ -43,6 +34,7 @@ return {
         })
 
         lspconfig.cssls.setup({
+            capabilities = capabilities,
         })
 
         vim.api.nvim_create_autocmd('LspAttach', {
