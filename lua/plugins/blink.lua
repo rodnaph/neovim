@@ -9,6 +9,7 @@ return {
         ['<C-y>'] = { 'fallback' },
         ['<C-k>'] = { 'select_prev', 'fallback' },
         ['<C-j>'] = { 'select_next', 'fallback' },
+        ['<tab>'] = { 'accept', 'fallback' },
         ['<C-space>'] = { 'accept', 'fallback' },
         ['<C-enter>'] = { 'show', 'fallback' },
     },
