@@ -14,7 +14,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins', { change_detection = { notify = false } })
+require('lazy').setup({
+    change_detection = {
+        enabled = false
+    },
+    rocks = {
+        enabled = false,
+    },
+    spec = {
+        import = 'plugins',
+    }
+})
 require('user.commands')
 require('user.options')
 require('user.keymap')
