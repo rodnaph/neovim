@@ -27,10 +27,10 @@ return {
             },
             extensions = {
                 fzf = {
-                    fuzzy = true,                    -- false will only do exact matching
-                    override_generic_sorter = true,  -- override the generic sorter
-                    override_file_sorter = true,     -- override the file sorter
-                    case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                    fuzzy = true,
+                    override_generic_sorter = true,
+                    override_file_sorter = true,
+                    case_mode = "smart_case",
                 }
             }
         })
@@ -38,47 +38,47 @@ return {
         telescope.load_extension('fzf')
         telescope.load_extension('yank_history')
 
-        -- ctrl-p to search git files
+        -- git files
         vim.keymap.set('n', '<C-p>', function ()
             builtin.git_files({ show_untracked = true })
-        end, { desc = 'Search Git files.' })
+        end)
 
-        -- leader fu to find usages
+        -- find usages
         vim.keymap.set('n', '<leader>fu', function ()
             builtin.lsp_references({ show_line = false })
-        end, { desc = '[F]ind [U]sages via LSP.' })
+        end)
 
-        -- leader bu to search buffers
+        -- search buffers
         vim.keymap.set('n', '<leader>bu', function ()
             builtin.buffers();
-        end, { desc = 'List open [BU]ffers.' })
+        end)
 
-        -- leader ff to search files
-        vim.keymap.set('n', '<leader>ff', builtin.live_grep, { desc = '[Find] in [F]iles.' })
+        -- search file content
+        vim.keymap.set('n', '<leader>ff', builtin.live_grep)
 
-        -- leader of to previously opened files
-        vim.keymap.set('n', '<leader>of', builtin.oldfiles, { desc = 'List [O]ld [F]iles.' })
+        -- previously opened files
+        vim.keymap.set('n', '<leader>of', builtin.oldfiles)
 
-        -- ctrl-g to search word under cursor
-        vim.keymap.set('n', '<C-g>', builtin.grep_string, { desc = 'Search word under cursor.' })
+        -- search word under cursor
+        vim.keymap.set('n', '<C-g>', builtin.grep_string)
 
-        -- use Find to search all files containing string with Telescope
+        -- search all files containing string
         vim.api.nvim_create_user_command('Find', function (opts)
             builtin.grep_string({ search = opts.args })
         end, { nargs = 1 });
 
-        -- leader yr to search yank history
+        -- yank history
         vim.keymap.set('n', '<leader>yr', function ()
             telescope.extensions.yank_history.yank_history()
-        end, { desc = 'List [Y]ank[R]ing history.' })
+        end)
 
-        -- leader ft to search by file type
+        -- by file type
         vim.keymap.set('n', '<leader>ft', function ()
             local file_extension = vim.fn.input("Enter file extension: ")
             builtin.find_files({
                 file_ignore_patterns = { "%.git/", "node_modules/", "vendor/" },
                 find_command = { "rg", "--files", "--iglob", "*." .. file_extension }
             })
-        end, { desc = 'Search by [F]ile [T]ype.' })
+        end)
     end
 }
