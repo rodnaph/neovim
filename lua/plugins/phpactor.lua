@@ -43,7 +43,7 @@ return {
 
         vim.keymap.set('n', '<leader>tc', function()
             rpc.call('transform', {
-                transform = 'fix_namespace_class_name',
+                transform = 'implement_contracts',
                 source = utils.source(),
                 path = utils.path(),
             })
