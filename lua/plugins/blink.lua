@@ -3,7 +3,6 @@ return {
   dependencies = {
       'rafamadriz/friendly-snippets',
   },
-  version = 'v0.12.0',
   opts = {
     keymap = { 
         ['<C-y>'] = { 'fallback' },
@@ -23,6 +22,12 @@ return {
 
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+
+    fuzzy = {
+      prebuilt_binaries = {
+          force_version = "v0.14.0",
+      }
     },
 
     completion = {
