@@ -25,3 +25,7 @@ vim.keymap.set('n', '[d', ':lua vim.diagnostic.goto_prev()<cr>')
 vim.keymap.set('n', '[e', ':lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<cr>')
 vim.keymap.set('n', ']d', ':lua vim.diagnostic.goto_next()<cr>')
 vim.keymap.set('n', ']e', ':lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<cr>')
+
+-- cmd-j/k to duplicate/remove current line
+vim.keymap.set('n', '<D-j>', 'yyp')
+vim.keymap.set('n', '<D-k>', 'dd<up>')
