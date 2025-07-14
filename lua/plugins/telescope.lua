@@ -80,5 +80,10 @@ return {
                 find_command = { "rg", "--files", "--iglob", "*." .. file_extension }
             })
         end)
+
+        vim.keymap.set("n", "<leader>gs", function()
+            builtin.git_status({
+            })
+        end)
     end
 }
