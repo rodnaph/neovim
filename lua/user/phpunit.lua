@@ -69,8 +69,8 @@ function M.find_data_provider_method(lines, test_method_line)
     for i = test_method_line - 1, start_line, -1 do
         local line = lines[i]
 
-        -- Check for attribute: #[DataProvider('methodName')] or #[DataProvider("methodName")]
-        local attr_match = line:match("#%[DataProvider%(['\"]([%w_]+)['\"]%)%]")
+        -- Check for attribute: #[DataProvider('methodName')] or fully qualified #[\PHPUnit\...\DataProvider('methodName')]
+        local attr_match = line:match("DataProvider%(['\"]([%w_]+)['\"]%)")
         if attr_match then
             return attr_match
         end
