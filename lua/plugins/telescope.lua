@@ -95,5 +95,15 @@ return {
             builtin.git_status({
             })
         end)
+
+        -- PHPUnit test method picker - only for test files
+        vim.api.nvim_create_autocmd('BufRead', {
+            pattern = '*Test.php',
+            callback = function ()
+                vim.keymap.set('n', '<leader>pu', function ()
+                    require('user.phpunit').pick_test_methods()
+                end, { buffer = true, desc = 'Pick PHPUnit test method' })
+            end
+        })
     end
 }
