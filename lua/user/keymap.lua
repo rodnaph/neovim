@@ -1,6 +1,9 @@
 -- ctrl-space for newline
 vim.keymap.set('i', '<C-space>', '<cr>');
 
+-- ctrl-h for backspace
+vim.keymap.set('i', '<C-h>', '<BS>');
+
 -- navigate buffers
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
