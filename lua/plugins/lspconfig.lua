@@ -1,6 +1,6 @@
 return {
     'neovim/nvim-lspconfig',
-    tag = 'v1.3.0',
+    tag = 'v2.5.0',
     config = function ()
         local lspconfig = require('lspconfig')
         local capabilities = require('blink.cmp').get_lsp_capabilities()
