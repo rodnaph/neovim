@@ -1,6 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
+    tag = '0.1.8',
     dependencies = {
         'nvim-lua/plenary.nvim',
         'BurntSushi/ripgrep',
@@ -51,6 +51,16 @@ return {
         -- search buffers
         vim.keymap.set('n', '<leader>bu', function ()
             builtin.buffers();
+        end)
+
+        -- show diagnostics
+        vim.keymap.set('n', '<leader>sd', function ()
+            builtin.diagnostics();
+        end)
+
+        -- search buffers
+        vim.keymap.set('n', '<leader>ss', function ()
+            builtin.lsp_dynamic_workspace_symbols();
         end)
 
         -- search file content
