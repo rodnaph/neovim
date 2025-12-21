@@ -3,7 +3,7 @@ return {
   dependencies = {
       'rafamadriz/friendly-snippets',
   },
-  version = 'v1.7.0',
+  version = 'v1.8.0',
   opts = {
     keymap = { 
         ['<C-y>'] = { 'fallback' },
