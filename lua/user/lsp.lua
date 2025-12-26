@@ -1,10 +1,7 @@
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-
 vim.lsp.config('intelephense', {
     cmd = { 'intelephense', '--stdio' },
     filetypes = { 'php' },
     root_markers = { 'composer.json', '.git' },
-    capabilities = capabilities,
     init_options = {
         licenceKey = os.getenv('HOME') .. '/.config/intelephense/licence.key',
     },
@@ -24,7 +21,6 @@ vim.lsp.config('lua_ls', {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
     root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
-    capabilities = capabilities,
     settings = {
         Lua = {
             diagnostics = {
@@ -38,7 +34,6 @@ vim.lsp.config('cssls', {
     cmd = { 'vscode-css-language-server', '--stdio' },
     filetypes = { 'css', 'scss', 'less' },
     root_markers = { 'package.json', '.git' },
-    capabilities = capabilities,
 })
 
 vim.lsp.enable('intelephense')
