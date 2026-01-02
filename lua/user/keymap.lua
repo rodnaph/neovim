@@ -32,3 +32,13 @@ vim.keymap.set('n', ']e', ':lua vim.diagnostic.goto_next({severity = vim.diagnos
 -- cmd-j/k to duplicate/remove current line
 vim.keymap.set('n', '<D-j>', 'yyp')
 vim.keymap.set('n', '<D-k>', 'dd<up>')
+
+-- copy relative path
+vim.keymap.set('n', '<leader>cp', function()
+  vim.fn.setreg('+', vim.fn.expand('%'))
+end)
+
+-- copy absolute path
+vim.keymap.set('n', '<leader>cP', function()
+  vim.fn.setreg('+', vim.fn.expand('%:p'))
+end)
