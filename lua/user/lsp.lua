@@ -17,28 +17,7 @@ vim.lsp.config('intelephense', {
     },
 })
 
-vim.lsp.config('lua_ls', {
-    cmd = { 'lua-language-server' },
-    filetypes = { 'lua' },
-    root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = {"vim"},
-            },
-        },
-    },
-})
-
-vim.lsp.config('cssls', {
-    cmd = { 'vscode-css-language-server', '--stdio' },
-    filetypes = { 'css', 'scss', 'less' },
-    root_markers = { 'package.json', '.git' },
-})
-
 vim.lsp.enable('intelephense')
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('cssls')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
